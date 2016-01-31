@@ -1,5 +1,5 @@
 FACTOR     = 8;
-MAX_FACTOR = 128; -- the bigger, the more graphical glitches you get
+MAX_FACTOR = 64; -- the bigger, the more graphical glitches you get
 MIN_FACTOR = 1;
 
 SIZE_FULL  = 2*FACTOR; --32
@@ -35,7 +35,7 @@ minetest.register_tool("mapp:map", {
 		DRAW_SIZE2 = 6.4/FACTOR;
 
 		minetest.chat_send_player( placer:get_player_name(),
-			'Info: Map resolution set to '..tostring( SIZE_FULL )..'x'..tostring( SIZE_FULL )..'.');	
+			'Info: Map resolution set to '..tostring( SIZE_FULL )..'x'..tostring( SIZE_FULL )..'.');
 	end,
 })
 
@@ -57,7 +57,7 @@ function map_handler (itemstack, user, pointed_thing)
            yaw = math.deg(yaw)
            yaw = math.fmod (yaw, 360)
            if yaw<0 then yaw = 360 + yaw end
-           if yaw>360 then yaw = yaw - 360 end           
+           if yaw>360 then yaw = yaw - 360 end
            if yaw < 90 then
               rotate = 90
            elseif yaw < 180 then
@@ -69,7 +69,7 @@ function map_handler (itemstack, user, pointed_thing)
            end
            yaw = math.fmod(yaw, 90)
            yaw = math.floor(yaw / 10) * 10
-           
+
         end
 
 		--Localise some global minetest variables for speed.
